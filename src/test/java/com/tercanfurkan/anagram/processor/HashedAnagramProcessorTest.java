@@ -2,12 +2,23 @@ package com.tercanfurkan.anagram.processor;
 
 import org.junit.Test;
 
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class HashedAnagramProcessorTest {
+
+    @Test
+    public void shouldReturnFalseForAnEmptyList() {
+        assertFalse(new HashedAnagramProcessor().areAnagrams(Collections.emptyList()));
+    }
+
+    @Test
+    public void shouldReturnTrueForASingleText() {
+        assertTrue(new HashedAnagramProcessor().areAnagrams(List.of("single text")));
+    }
 
     @Test
     public void shouldReturnFalseForNoAnagrams(){
