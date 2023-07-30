@@ -24,11 +24,23 @@ Ex: Map representation of the text "aabbccc":\
 
 The generated hashCode is then the same for anagrams.
 
+### Performance test results for both approaches
+
+Tested on an anagram text which contains 20 * 10000 characters
+```
+Benchmark                                         Mode  Cnt   Score   Error  Units
+BenchmarkRunner.benchmarkHashedAnagramProcessor  thrpt    5  94.786 ± 6.688  ops/s
+BenchmarkRunner.benchmarkSortedAnagramProcessor  thrpt    5  41.006 ± 3.035  ops/s
+```
+
 ## How it works
 ```
 # To build and run
 mvn package && mvn exec:java
 
-# Just run tests
+# Just run unit tests
 mvn test
+
+## Run benchmarks
+mvn clean verify -Pbenchmark
 ```
